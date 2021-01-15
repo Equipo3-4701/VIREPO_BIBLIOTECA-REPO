@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura Apache Derby</title>
+    <link rel="stylesheet" href="css/ha.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>ViRepo</h1>
+    </header>
+    <main class="informacion">
+        <h2>Arquitectura Apache Derby</h2>
+        <h3>Preocesos</h3>
+        <ul>
+            <li id="til">Classic</li>
+            <p id="texp">Hay que enviar la señal apropiada al proceso padre httpd que se esté ejecutando. Hay dos maneras de enviar estas señales. En primer lugar, puede usar el comando de Unix kill que envía señales directamente a los procesos. Puede que tenga varios
+                procesos httpd ejecutándose en su sistema, pero las señales deben enviarse solamente al proceso padre, cuyo pid está especificado en la directiva PidFile. Esto quiere decir que no debe necesitar enviar señales a ningún proceso excepto
+                al proceso padre. Hay tres señales que puede enviar al proceso padre: TERM, HUP, y USR1, que van a ser descritas a continuación.</p>
+            <li id="til">SuperClassic</li>
+            <p id="texp">Esto puede hacer que se produzca el error "bind: Address already in use" (después de usarHUP) o el error "long lost child came home!" (después de usar USR1). En el primer caso se trata de un error irrecuperable, mientras que en el segundo,
+                solo ocurre que el servidor pierde un slot del scoreboard. Por lo tanto, sería aconsejable usar reinicios graceful, y solo hacer reinicios normales de forma ocasional</p>
+            <li id="til">SuperServer</li>
+            <p id="texp">Implicada en la segunda y subsiguientes peticiones en una conexión HTTP persistente (KeepAlive). Puede ser que el servidor termine después de leer la línea de petición, pero antes de leer cualquiera de las cabeceras de petición. Hay una solución
+                que fue descubierta demasiado tarde para la incluirla en versión 1.2. En teoría esto no debe suponer ningún problema porque el cliente KeepAlive ha de esperar que estas cosas pasen debido a los retardos de red y a los timeouts que a veces
+                dan los servidores.</p>
+        </ul>
+        <h3>Cache</h3>
+        <p>Los datos de caché almacenados por el servidor derby incorporado se almacenan en {DENODO_HOME} / metadata / db / cache, principalmente como archivos * .dat. Tambien hay un procedimiento almacenado incorporado que le informará sobre el contenido
+            de un caché, CACHE_CONTENTS , que recuperará información sobre qué patrones de consulta se almacenan en el caché para una base de datos y / o vista determinada.</p>
+        <h3>Conexiones locales</h3>
+        <p>Hay un adaptador de recursos genérico que funciona con cualquier gestor de bases de datos JDBC (Java Database Connectivity), pero solo soporta transacciones locales. Los otros son adaptadores de recursos específicos de cada fabricante, optimizados
+            para un gestor de bases de datos determinado.</p>
+        <table>
+            <tr>
+                <th colspan="2">Apache Derby</th>
+            </tr>
+            <tr>
+                <td>Adaptador de recursos de transacción local de cliente TranQL para Apache Derby.</td>
+                <td>tranql-connector-derby-client-local-
+                    <versión>.rar</td>
+            </tr>
+            <tr>
+                <td>Adaptador de recursos de transacción XA de cliente TranQL para Apache Derby.</td>
+                <td>tranql-connector-derby-client-xa-
+                    <versión>.rar</td>
+            </tr>
+            <tr>
+                <td>Adaptador de recursos local incoporado TranQL para Apache Derby.</td>
+                <td>tranql-connector-derby-embed-local-
+                    <versión>.rar</td>
+            </tr>
+            <tr>
+                <td>Adaptador de recursos XA incoporado TranQL para Apache Derby.</td>
+                <td>tranql-connector-derby-embed-xa-
+                    <versión>.rar</td>
+            </tr>
+        </table>
+        <h3>Acceso Simultaneo</h3>
+        <p>Las bases de datos controlan ellas mismas que dos usuarios no escriban a la vez el mismo registro (primero lo haría uno y después el otro)Lo que deberías controlar tú es que si un usuario selecciona un registro para modificarlo, otro usuario no
+            pudiese entrar a la vez en el mismo registro para modificar también.Generalmente cada base de datos tiene sus mecanismos de bloqueo (selects con locks…).</p>
+        <h3>Multiprocesador/Multinúcleo</h3>
+        <ul>
+            <li>Apache inicia varios subprocesos y cada petición es atendida por uno de estos; cuando termina con esta petición este subproceso podría atender a otro cliente o ser terminado, según al valor de MaxRequestsPerChild.</li>
+            <li>Es el modo más estable, ya que un error crítico solo afectaría a una petición. Este es el único modo en que se pueden usar módulos / extensiones que no sean Thread-Safe.</li>
+            <li>Requiere más recursos (Memoria RAM y CPU) para atender cierto número de peticiones simultaneas, respecto a otras configuraciones. Esto limita drásticamente la escabilidad del servidor.</li>
+            <li>Favorece el uso intensivo de PHP. Los aceleradores de PHP no son Thread-Safe, pero al usarlos junto a Prefork podemos justificar el mayor uso de php (o páginas sin ningún tipo de caché, aparte del acelerador en sí).</li>
+            <li>Prefork es la configuración predeterminada en la mayoría de instalaciones.</li>
+        </ul>
+        <a id="Descargar" href="AdministracionBD/Arquitectura_Apache_Derby.pdf">
+            <h3>Descargar archivo de trabajo</h3>
+        </a>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <img src="imagenes/logo1.png" alt="" id="log">
+            <p id="a"><strong>ViRepo:</strong> Bibloteca y Repositorio virtual</p>
+            <img src="imagenes/logo2.png" alt="" id="log">
+        </div>
+    </footer>
+</body>
+
+</html>

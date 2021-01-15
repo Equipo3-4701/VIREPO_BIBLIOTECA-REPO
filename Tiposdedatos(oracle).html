@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/ha.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>ViRepo</h1>
+    </header>
+    <main class="informacion">
+        <h2>Tipos de datos en ORACLE</h2>
+        <h3>CHAR(n)</h3>
+        <ul>
+            <li>Cadena de caracteres de longitud fija, tiene un tamaño de n bytes.</li>
+            <li>Si no se especifica n, la ORACLE le da un tamaño de 255 bytes.</li>
+            <li>El tamaño máximo en BD es 2000 bytes y el mínimo de 1 byte.</li>
+            <li>El tamaño máximo en PL/SQL es 32767 bytes y el mínimo 1 byte.</li>
+        </ul>
+        <h3>VARCHAR2(n)</h3>
+        <ul>
+            <li>Cadena de caracteres de longitud variable, tiene un tamaño maáximo de n bytes.</li>
+            <li>Es obligatorio especificar el tamaño.</li>
+            <li>El tamaño máximo en BD es 4000 bytes y el mínimo de 1 byte.</li>
+            <li>El tamaño máximo en PL/SQL es 32767 bytes y el mínimo de 1 byte.</li>
+            <li>STRING y VARCHAR son sinónimos de VARCHAR2.</li>
+            <li>Usando VARCHAR2 en lugar de CHAR ahorramos espacio de almacenamiento.</li>
+            <li>En contra tiene que si se escriben muchas veces hay que hacer un mayor esfuerzo de mantenimiento del sistema para mantener la eficiencia.</li>
+        </ul>
+        <h3>NUMBER(p,s)</h3>
+        <ul>
+            <li>Número de p dígitos de los cuales s son decimales.</li>
+            <li>No es obligatorio especificar el tamaño.</li>
+            <li>El tamaño de p va de 1 a 38 y el s desde -84 a 127.</li>
+            <li>El tamaño en PL/SQL 1E-130..10E125.</li>
+            <li>sinónimos</li>
+            <li id="dos">Números de coma fija: DEC, DECIMAL, NUMERIC.</li>
+            <li id="dos">Enteros: INTEGER (sinónimo de NUMBER), INT, SMALLINT.</li>
+            <li id="dos">Flotante: DOUBLÉ y FLOAT.</li>
+        </ul>
+        <h3>DATE</h3>
+        <ul>
+            <li>Fecha válida.</li>
+            <li>Desde el 1 de Enero del 4712 AC hasta el 3 de Diciembre del 9999 DC.</li>
+        </ul>
+        <h3>LONG</h3>
+        <ul>
+            <li>Cadeba de caracteres de longitud variable.</li>
+            <li>Es una versión más grande de VARCHAR2.</li>
+            <li>El tamaño máximo en BD es 2 Gigabytes.</li>
+        </ul>
+        <h3>BLOB</h3>
+        <ul>
+            <li>Cadena de caracteres de longitud variable.</li>
+            <li>Es una versión más grande de VARCHAR2.</li>
+            <li>El tamaño máximo en BD es 4 Gigabytes.</li>
+            <li>Es recomendable usar CLOB o BLOB en luegar de LONG.</li>
+        </ul>
+        <h3>BFILE</h3>
+        <ul>
+            <li>Puntero a un fichero en disco.</li>
+            <li>El tamaño mnaximo en BD es 4 Gigabytes.</li>
+        </ul>
+        <h3>TIMESTAMP(f)</h3>
+        <ul>
+            <li>El timestamp es una fecha que contiene una granularidad superior al tipo DATE, eso significa que contiene fracciones de segundo.</li>
+            <li>Con f definimos el numero de dígitos que queremos en la fracci'on de segundo.</li>
+            <li>Así, f puede valer desde 0 hasta 9 (el valor por defecto es 6).</li>
+        </ul>
+        <h3>SELECT SYSTIMETAMP FROM DUAL</h3>
+        <p>Podemos usar WITH (local) TIMEZONE para grabar con el desplazamiento de hora local.</p>
+        <h3>INTERVAL YEAR (y) TO MONTH</h3>
+        <p>Periodo de tiempo definido en años y meses donde y es el número de dígitos del año. Puede valer de 0 a 9.</p>
+        <h3>INTERVAL DAY (d) TO SECOND</h3>
+        <p>Es un periodo de tiempo definido en días, horas, mínutos y segundos. d es el máximo numero de dígitos en el día, f es el máximo numero de dígitos en campo de segundos. d va de 0 a 9 (por defecto = 2) f va de 0 a 9 (por defecto = 6).</p>
+        <h3>ROWID</h3>
+        <P>Cadena hexadecimal que representa de forma única una fila en una tabla (pero no unica en cualquier tabla).</P>
+        <h3>RAW(n)</h3>
+        <ul>
+            <li>Objeto binario de longitud variable.</li>
+            <li>Es obligatorio especificar el tamaño.</li>
+            <li>El tamaño máximo en BD es 2000 bytes y el mínimo de 1 byte.</li>
+            <li>El tamaño máximo en PL/SQL es 32767 bytes y el mínimo de 1 byte.</li>
+        </ul>
+        <h3>LONG RAW</h3>
+        <ul>
+            <li>Objeto binario de longitud variable.</li>
+            <li>El tamaño máximo en BD es 2 Gigabytes.</li>
+            <li>El tamaño maximo en PL/SQL es 32767 bytes y el mínimo de 1 byte.</li>
+        </ul>
+        <a id="Descargar" href="AdministracionBD/tipo_dato_oracle_Espinosa.pdf">
+            <h3>Descargar archivo de trabajo</h3>
+        </a>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <img src="imagenes/logo1.png" alt="" id="log">
+            <p id="a"><strong>ViRepo:</strong> Bibloteca y Repositorio virtual</p>
+            <img src="imagenes/logo2.png" alt="" id="log">
+        </div>
+    </footer>
+</body>
+
+</html>
