@@ -1,0 +1,300 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.4em;
+    background-color: rgb(114, 118, 128);
+}
+
+
+/*Buscador de contenido*/
+
+#ctn-icon-search {
+    position: absolute;
+    right: 25px;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ctn-icon-search i {
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+    transition: all 30ms;
+}
+
+#ctn-icon-search i:hover {
+    color: black;
+}
+
+#ctn-bars-search {
+    position: fixed;
+    top: -100px;
+    width: 100%;
+    background: gray;
+    padding: 20px;
+    z-index: 8;
+    transition: all 600ms;
+}
+
+#ctn-bars-search input {
+    display: block;
+    width: 78%;
+    margin: auto;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#box-search {
+    position: fixed;
+    top: 155px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 78%;
+    background: rgb(116, 115, 115);
+    z-index: 7;
+    padding: unset;
+    overflow: hidden;
+    display: none;
+}
+
+#box-search li a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-align: left;
+}
+
+#box-search li a:hover {
+    background: black;
+}
+
+#box-search li a i {
+    margin-right: 10px;
+    color: black;
+}
+
+#cover-ctn-search {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 6;
+    display: none;
+}
+
+
+/*otros*/
+
+h1 {
+    font-variant: 2rem;
+    line-height: 1.3em;
+    text-align: left;
+    margin-left: 1%;
+}
+
+#Temax {
+    font-variant: .5rem;
+    line-height: 2.7em;
+    text-align: left;
+    margin-left: .8%;
+    font-size: 22px;
+}
+
+#Buzz {
+    font-variant: .5rem;
+    line-height: 2.6em;
+    margin-right: 4%;
+    font-size: 22px;
+    color: gray;
+}
+
+a,
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    text-decoration: none;
+}
+
+p {
+    color: #2c3e50;
+    text-align: justify;
+    padding: 0 15px;
+}
+
+.efecto_3d {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.efecto-columna {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: .7s ease;
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.64);
+}
+
+.contenedor {
+    margin: 10px;
+    perspective: 800;
+}
+
+.adelante,
+.atras {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.atras {
+    background: #f1f1f1;
+    transform: rotateY(180deg);
+}
+
+.contenedor:hover .efecto-columna {
+    transform: rotateY(180deg);
+}
+
+img {
+    display: flex;
+    width: 100%;
+}
+
+
+/*Parte superior e inferior*/
+
+.header {
+    background: #333333;
+    color: white;
+    padding: .2rem 0;
+    position: relative;
+    display: flex;
+    z-index: 10;
+}
+
+footer {
+    background-color: #333333;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+#log {
+    width: 12%;
+    margin-left: 11%;
+    margin-right: 11%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#a {
+    font-variant: 2rem;
+    line-height: 1.3em;
+    text-align: center;
+    margin-left: 1%;
+    color: white;
+}
+
+
+/*Responsibe*/
+
+@media(min-width:290px) {
+    .efecto_3d {
+        width: 70%;
+    }
+    .contenedor {
+        width: 180px;
+    }
+    h1 {
+        font-size: 18px;
+        line-height: 2.4em;
+    }
+    #Temax {
+        font-size: 17px;
+    }
+    #Buzz {
+        display: none;
+    }
+}
+
+@media(min-width:420px) {
+    .efecto_3d {
+        width: 70%;
+    }
+    .contenedor {
+        width: 180px;
+    }
+    h1 {
+        font-variant: 2rem;
+        line-height: 1.5em;
+        text-align: left;
+        margin-left: 1%;
+        font-size: 30px;
+    }
+    #Temax {
+        font-size: 22px;
+    }
+    #Buzz {
+        display: none;
+    }
+}
+
+@media(min-width:620px) {
+    .efecto_3d {
+        width: 70%;
+    }
+    .contenedor {
+        width: 180px;
+    }
+    #Buzz {
+        display: block;
+    }
+}
+
+@media(min-width:890px) {
+    .contenedor {
+        width: 22%;
+    }
+}
+
+@media(min-width:800px) {
+    .contenedor {
+        width: 235px;
+    }
+}
+
+@media(min-width:1024px) {
+    .efecto_3d {
+        width: 1023px;
+    }
+    .contenedor {
+        width: 238px;
+    }
+}
+
+@media(min-width:1200px) {
+    .efecto_3d {
+        width: 1200px;
+    }
+    .contenedor {
+        width: 260px;
+    }
+}

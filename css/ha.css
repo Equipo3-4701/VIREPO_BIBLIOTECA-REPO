@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.4em;
+    background-color: rgb(114, 118, 128);
+}
+
+
+/*Descargar*/
+
+#Descargar {
+    color: black;
+}
+
+
+/*Otros*/
+
+h1 {
+    font-variant: 2rem;
+    line-height: 1.3em;
+    text-align: left;
+    margin-left: 1%;
+}
+
+h2,
+h3 {
+    font-variant: 2rem;
+    line-height: 1.3em;
+    margin-left: 1.4%;
+    margin-right: 1.4%;
+}
+
+p {
+    line-height: 1.3em;
+    margin-bottom: 1.1em;
+    margin-left: 2%;
+    margin-right: 3%;
+    text-align: justify;
+}
+
+#texp {
+    line-height: 1.3em;
+    margin-bottom: 1.1em;
+    margin-left: -0.8%;
+    margin-right: 3%;
+    text-align: justify;
+}
+
+
+/*Listas*/
+
+li {
+    line-height: 1.3em;
+    margin-bottom: .6em;
+    margin-left: 1%;
+    margin-right: 3%;
+    text-align: justify;
+}
+
+#til {
+    line-height: 1.3em;
+    margin-bottom: .6em;
+    margin-left: -0.8%;
+    margin-right: 3%;
+    text-align: justify;
+    list-style: none;
+}
+
+#dos {
+    line-height: 1.3em;
+    margin-bottom: .6em;
+    margin-left: 3.5%;
+    margin-right: 3%;
+    text-align: justify;
+}
+
+#sin {
+    line-height: 1.3em;
+    margin-bottom: .6em;
+    margin-left: 1%;
+    margin-right: 3%;
+    text-align: justify;
+    list-style: none;
+}
+
+#sind {
+    line-height: 1.3em;
+    margin-bottom: .6em;
+    margin-left: 3.5%;
+    margin-right: 3%;
+    text-align: justify;
+    list-style: none;
+}
+
+#tres {
+    line-height: 1.3em;
+    margin-bottom: .6em;
+    margin-left: 6%;
+    margin-right: 3%;
+    text-align: justify;
+}
+
+
+/*Tabla*/
+
+table,
+th,
+td {
+    border: 1.5px solid black;
+    border-collapse: collapse;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+th {
+    color: white;
+    background-color: black;
+}
+
+td {
+    background-color: rgb(100, 102, 109);
+}
+
+
+/*Parte de abajo*/
+
+.header {
+    background: #333333;
+    color: white;
+    padding: .2rem 0;
+    display: flex;
+}
+
+footer {
+    background-color: #333333;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+#log {
+    width: 12%;
+    margin-left: 11%;
+    margin-right: 11%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#a {
+    font-variant: 2rem;
+    line-height: 1.3em;
+    text-align: center;
+    margin-left: 1%;
+}
